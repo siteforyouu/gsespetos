@@ -58,7 +58,7 @@ input,select{width:100%;padding:13px;border-radius:12px;border:0;margin-top:10px
   <h1><i class="gs" style="font-style:normal">GS</i> <span>ESPETOS</span></h1>
   <p>Sabor que reúne amigos. Espetos na brasa com delivery e retirada.</p>
   <div class="pill">🔥 Hoje: espetos simples completos</div>
-  <a class="btn b1" href="#" onclick="abrir();return false">Pedir pelo WhatsApp</a>
+  <a class="btn b1" id="waHero" href="#" target="_blank" rel="noopener">Pedir pelo WhatsApp</a>
   <a class="btn b2" href="#cardapio">Ver cardápio</a>
 </div>
 
@@ -73,7 +73,7 @@ input,select{width:100%;padding:13px;border-radius:12px;border:0;margin-top:10px
   GS Espetos é qualidade, sabor e tradição!
 </div>
 
-<a id="wa" href="#" onclick="abrir();return false">💬</a>
+<a id="wa" href="#" target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">💬</a>
 
 <div id="drawer" onclick="if(event.target===this)fechar()">
   <div id="box">
@@ -91,7 +91,7 @@ input,select{width:100%;padding:13px;border-radius:12px;border:0;margin-top:10px
 
 <script>
 // ===== EDITE AQUI =====
-const WHATSAPP = "5500000000000"; // DDI + DDD + número, só números
+const WHATSAPP = "5566999133561"; // DDI + DDD + número, só números
 // p: preço (ex: 12.5) ou null = "Consulte"
 const MENU = {
   espetos:[
@@ -139,6 +139,8 @@ function enviar(){
   if(obs)m+=`\n*Obs:* ${obs}`;
   window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(m),"_blank");
 }
+const SAUDACAO="Olá! Vim pelo cardápio da GS Espetos e gostaria de fazer um pedido. 🔥";
+["wa","waHero"].forEach(id=>document.getElementById(id).href="https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(SAUDACAO));
 draw();
 </script>
 </body>
